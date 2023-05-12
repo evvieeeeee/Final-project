@@ -138,63 +138,87 @@ def callback_worker(call):
     # Если нажали на одну из 12 кнопок — выводим гороскоп
     if call.data == 'oven':
         # Формируем гороскоп
+        mgs1 = 'Гороскоп для Овнов на сегодня: '
         text1 = get_text(url1)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs1)
         bot.send_message(call.message.chat.id, text1)
     if call.data == 'telec':
         # Формируем гороскоп
+        mgs2 = 'Гороскоп для Тельцов на сегодня: '
         text2 = get_text(url2)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs2)
         bot.send_message(call.message.chat.id, text2)
     if call.data == 'bliznecy':
         # Формируем гороскоп
+        mgs3 = 'Гороскоп для Близнецов на сегодня: '
         text3 = get_text(url3)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs3)
         bot.send_message(call.message.chat.id, text3)
     if call.data == 'rak':
         # Формируем гороскоп
+        mgs4 = 'Гороскоп для Раков на сегодня: '
         text4 = get_text(url4)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs4)
         bot.send_message(call.message.chat.id, text4)
     if call.data == 'lev':
         # Формируем гороскоп
+        mgs5 = 'Гороскоп для Львов на сегодня: '
         text5 = get_text(url5)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs5)
         bot.send_message(call.message.chat.id, text5)
     if call.data == 'deva':
         # Формируем гороскоп
+        mgs6 = 'Гороскоп для Дев на сегодня: '
         text6 = get_text(url6)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs6)
         bot.send_message(call.message.chat.id, text6)
     if call.data == 'vesy':
         # Формируем гороскоп
+        mgs7 = 'Гороскоп для Весов на сегодня: '
         text7 = get_text(url7)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs7)
         bot.send_message(call.message.chat.id, text7)
     if call.data == 'scorpion':
         # Формируем гороскоп
+        mgs8 = 'Гороскоп для Скорпионов на сегодня: '
         text8 = get_text(url8)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs8)
         bot.send_message(call.message.chat.id, text8)
     if call.data == 'strelec':
         # Формируем гороскоп
+        mgs9 = 'Гороскоп для Стрельцов на сегодня: '
         text9 = get_text(url9)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs9)
         bot.send_message(call.message.chat.id, text9)
     if call.data == 'kozerog':
         # Формируем гороскоп
+        mgs10 = 'Гороскоп для Козерогов на сегодня: '
         text10 = get_text(url10)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs10)
         bot.send_message(call.message.chat.id, text10)
     if call.data == 'vodoley':
         # Формируем гороскоп
+        mgs11 = 'Гороскоп для Водолеев на сегодня: '
         text11 = get_text(url11)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs11)
         bot.send_message(call.message.chat.id, text11)
     if call.data == 'ryby':
         # Формируем гороскоп
+        mgs12 = 'Гороскоп для Рыб на сегодня: '
         text12 = get_text(url12)
         # Отправляем текст в Телеграм
+        bot.send_message(call.message.chat.id, mgs12)
         bot.send_message(call.message.chat.id, text12)
 # Запускаем постоянный опрос бота в Телеграме
 bot.polling(none_stop=True, interval=0)
