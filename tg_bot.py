@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 # Указываем токен
 bot = telebot.TeleBot('6298309827:AAFKFkaDBHF2eIzmvwz0M_q80qCDbn6TPXI')
-# Импортируем типы из модуля, чтобы создавать кнопки
+# Извлекаем из сайта данные о гороскопах
 from telebot import types
 def get_text(url1):
     rs = requests.get(url1)
@@ -90,14 +90,14 @@ def get_text(url12):
     return article.text
 
 url12 = 'https://fakty.ua/ru/horoscope/12'
-# Импортируем типы из модуля, чтобы создавать кнопки
 
+# Импортируем типы из модуля, чтобы создавать кнопки
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     # Если написали «Привет»
-    if message.text == "Привет" or "привет"  or "привіт":
+    if message.text == "Привет" or "привет" or "привіт" or "/start":
         # Пишем приветствие
-        bot.send_message(message.from_user.id, "Привет, сейчас я расскажу тебе гороскоп на сегодня.")
+        bot.send_message(message.from_user.id, "Привет, сейчас я расскажу твой гороскоп на сегодня!")
         # Готовим кнопки
         keyboard = types.InlineKeyboardMarkup()
         # По очереди готовим текст и обработчик для каждого знака зодиака
@@ -130,8 +130,13 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, text='Выбери свой знак зодиака', reply_markup=keyboard)
     elif message.text == "/help":
         bot.send_message(message.from_user.id, "Напиши Привет")
+    elif message.text == "/info":
+        bot.send_message(message.from_user.id, "Вас приветствует бот от Эви. Здесь вы сможете узнать свой гороскоп на сегодня нажав на нужный знак зодиака, но знайте, "
+                                                   "верить или не верить в это всё исключительно ваше дело, не принимайте близко к сердцу если предсказание имеет негативный "
+                                                   "для вас контекст!!")
     else:
         bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
+
 # Обработчик нажатий на кнопки
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
