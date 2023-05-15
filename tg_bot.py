@@ -1,7 +1,7 @@
 # Подключаем модуль для Телеграма
 import telebot
-from bs4 import BeautifulSoup
-import requests
+from bs4 import BeautifulSoup #для извлечения данных из файлов HTML и XML
+import requests #позволяет отправлять запросы HTTP в Python
 # Указываем токен
 bot = telebot.TeleBot('6298309827:AAFKFkaDBHF2eIzmvwz0M_q80qCDbn6TPXI')
 # Извлекаем из сайта данные о гороскопах
@@ -128,9 +128,9 @@ def get_text_messages(message):
         keyboard.add(key_ryby)
         # Показываем все кнопки сразу и пишем сообщение о выборе
         bot.send_message(message.from_user.id, text='Выбери свой знак зодиака', reply_markup=keyboard)
-    elif message.text == "/help":
+    if message.text == "/help":
         bot.send_message(message.from_user.id, "Напиши Привет")
-    elif message.text == "/info":
+    if message.text == "/info":
         bot.send_message(message.from_user.id, "Вас приветствует бот от Эви. Здесь вы сможете узнать свой гороскоп на сегодня нажав на нужный знак зодиака, но знайте, "
                                                    "верить или не верить в это всё исключительно ваше дело, не принимайте близко к сердцу если предсказание имеет негативный "
                                                    "для вас контекст!!")
